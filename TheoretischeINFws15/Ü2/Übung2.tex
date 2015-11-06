@@ -1,0 +1,188 @@
+
+\documentclass[12pt]{article}
+
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\newcommand{\exercise}{Aufgabe}
+\usepackage{array}
+\usepackage{amstext}
+
+\newcolumntype{C}{>{$}c<{$}}
+\begin{document}
+  
+  \section*{Aufgabe 2.1}
+  \textit{{Aussagenlogische Syntax}}
+ \\
+ Welche der folgenden Formeln ist eine korrekt formulierte logische Aussage? Begründen Sie Ihre Aussage. Verwenden Sie anschließend Klammern für die korrekt formulierten Aussagen, um die Auswertungsreihenfolge anzugeben.  
+  
+ \begin{enumerate} 
+ \item $A \wedge B$ ist eine Aussage
+ \item $A \wedge (\neg B)$ ist eine Aussage
+ \item $A \wedge (\neg (\neg B))$ ist eine Aussage 
+ \item $A \neg \wedge B$ keine Aussage 
+ \item $f \Leftrightarrow \Leftrightarrow h$ keine Aussage 
+ \item $f \Leftrightarrow (\neg h)$ ist eine Aussage
+ \item $\neg \neg \not \Leftrightarrow \neg \neg h$ keine
+ \item $(\neg (\neg f)) \not \Leftrightarrow (\neg (\neg h))$ eine 
+ \item $(j \vee (k \wedge l)) \Rightarrow m$ eine 
+ \item $((j \wedge k) \vee l) \Leftrightarrow m \vee n$ eine  
+ \end{enumerate} 
+  
+  
+  
+  
+  
+ \section*{Aufgabe 2.2} 
+\textit{{Allgemeingültigkeit}
+} 
+\\ 
+ Seien $p, q$ und $r$ logische Aussagen. Welche der folgenden komplexen Aussagen sind allgemeingültig? 
+ \\
+\textbf{   $
+ p \Rightarrow q = \neg p \vee q$
+\\ $ 
+ p \Leftrightarrow q = (\neg p \vee q) \wedge (\neg q \vee p)
+$}
+ \begin{enumerate} 
+ \item $A_1: (p \Rightarrow q) \Leftrightarrow (q \Rightarrow p)$ \ \ \ (\textsc{\textbf{2 Punkte}}) Erfüllbar aber nicht allg.
+\\\\
+\begin{tabular}{|| C || C || C || C || C ||} \hline \hline
+p & q & (p \Rightarrow q)= M  &  (q \Rightarrow p) = N & M \Leftrightarrow N \\ 
+\hline \hline 
+0 & 0 & 1 & 1 & 1 \\
+0  & 1  & 1  & 0  & 0\\  
+1  & 0  & 0  & 1  &  0 \\
+1  & 1 &  1 &  1 &  1 \\  \hline 
+\end{tabular}
+
+ 	\item $A_2: (p \Leftrightarrow q) \Leftrightarrow (q \Leftrightarrow p)$ \ \ \ (\textsc{\textbf{2 Punkte}}) 
+ 	Erfüllbar und allg.
+\\\\
+\begin{tabular}{|| C || C || C || C || C ||} \hline \hline
+p & q & (p \Leftrightarrow q)= M  &  (q \Leftrightarrow p) = N & M \Leftrightarrow N \\ 
+\hline \hline 
+0  & 0 & 1  & 1  & 1 \\
+0  & 1 & 0  & 0  & 1\\  
+1  & 0 & 0  & 0  & 1 \\
+1  & 1 & 0  & 1  & 1 \\  \hline 
+\end{tabular} 	 	
+ \item $A_3: ((p \Rightarrow q) \wedge (q \Rightarrow r)) \Leftrightarrow (p \Rightarrow r)$ \ \ \ (\textsc{\textbf{3 Punkte}})
+Erfüllbar aber nicht allg. \\\\
+\begin{tabular}{|| C || C || C || C || C || C || C || C ||} \hline \hline
+p & q & r & (p \Rightarrow q)= M  &  (q \Rightarrow r) = N & M \wedge N = L & (p \Rightarrow r) = S & L \Leftrightarrow S \\ 
+\hline \hline 
+0  & 0 & 0  & 1  & 1 &1 & 1& 1\\
+0  & 0 & 1  & 1  & 1 &1 & 1& 1\\
+0  & 1 & 0  & 1  & 0 &0 & 1& 0\\
+0  & 1 & 1  & 1  & 1 &1 & 1& 1\\
+1  & 0 & 0  & 0  & 1 &0 & 0& 0\\
+1  & 0 & 1  & 0  & 1 &0 & 1& 0\\
+1  & 1 & 0  & 1  & 0 &0 & 0& 0\\
+1  & 1 & 1  & 1  & 1 &1 & 1& 1\\ \hline
+\end{tabular} 	
+ \end{enumerate} 
+  
+ \emph{Tipp}: Stellen Sie Wahrheitstabellen auf. Überprüfen Sie anschließend Ihre Ergebnisse, indem Sie testen, ob diese auch mit konkreten Aussagen Sinn machen.  
+  
+ Mögliche Beispiele für Aussagen: 
+ \begin{itemize} 
+ \item $p:$ Amélie lebt in Paris. 
+ \item $q:$ Amélie ist glücklich. 
+ \item $r:$ Amélie isst gerne Crème brûlée. 
+ \end{itemize} 
+  
+  
+  
+  
+  
+  
+ \section*{Aufgabe 2.3} 
+\textit{{Vereinfachung und Verneinung}}
+  
+ \subsection*{Teilaufgabe 2.3.1} 
+\textit{ {Vereinfachung}
+} 
+\\ 
+ Vereinfachen Sie die folgenden Aussagen: 
+ \begin{enumerate} 
+ \item $f \wedge (g \vee \neg f)= (f \wedge g)$ 
+ 
+ \item $f \vee (g \wedge \neg f)= (f \vee g)$ 
+ \item $\neg(f \Rightarrow (g \Rightarrow \neg f))= (f \wedge g)$ 
+ \end{enumerate} 
+  
+  
+  
+ \subsection*{Teilaufgabe 2.3.2} 
+\textit{{Verneinung}
+}
+\\
+Verneinen Sie die folgenden Aussagen: 
+ \begin{enumerate} 
+ \item $A: (f \wedge (g \vee h))= $
+ \item $B: $ mindestens einer mag nicht 
+ \item $C: $ 
+ \item $D: \forall x : x \geq 5 = \exists x: x < 5$ 
+ \item $E:$ mindes einer ist kein Freund. 
+ \item $F:$ alle sind gute
+ \end{enumerate} 
+  
+  
+  
+ \section*{Aufgabe 2.4} 
+ \textit{ Sprachen und Grammatiken}
+\\ 
+ Wir betrachten das Alphabet $\Sigma = \{x,y,*,+\}$, sowie die Worte $w = x+y$, $v = +$ und $u = y*x$. 
+  
+ \subsection*{Teilaufgabe 2.4.1} 
+\textit{ {Alphabete und Sprachen}
+} 
+\\
+\begin{enumerate} 
+ \item Geben Sie 3 Wörter an, die Worte über ${\Sigma}^*$ (und verschieden zu $w,u,v$) sind,
+\\\\
+ $m = xy*$;
+ $m = y*+$;
+ $m=w^y$
+  und 2 Wörter, die nicht zu $\Sigma^*$  gehören.
+  \\\\
+  $n = e *f$;
+  $m= x/z$  
+ \item Geben Sie 2 formale Sprachen über $\Sigma^*$  an. 
+ Teilmenge von ${\Sigma}^* = \{xyx,yxy\} \{*+x,x+*\}$
+ \item Bestimmen Sie $w v$, $v u w$ und $w^3$. 
+ $wv=x+y+$
+ $vuw=+y*xx+y$
+ $w^3=x+yx+yx+y$
+ \item Geben Sie $\Sigma^0, \Sigma^1$ und $\Sigma^2$ an.  
+ \item Bestimmen Sie die Anzahl der Elemente von $\Sigma^5$ und geben Sie ein beispielhaftes Wort aus $\Sigma^5$ an. 
+ \end{enumerate} 
+  
+  
+  
+ \subsection*{Teilaufgabe 2.4.2} 
+\textit{ Eine Grammatik für korrekt formulierte Formeln }
+  \\
+ Geben Sie eine Grammatik an, mit Hilfe derer sich die Sprache $L$ der korrekt formulierten mathematischen Formeln aus $\Sigma$ ableiten lassen.  
+  
+ Beispiele für korrekt bzw. nicht korrekt formulierte Formeln: 
+ \begin{itemize} 
+ \item $w,u \in L$, $v \notin L$ 
+ \item $x+y, y*y, y*x+x, y*x+x*y \in L$ 
+ \item $x, xy, x+, *yx, x+yx \notin L$. (Die "Abkürzung" $xy = x*y$ sei zur Vereinfachung nicht erlaubt.) 
+ $P=$ 
+$S \rightarrow xT | yT $
+
+$T \rightarrow +R| *R $
+
+$R \rightarrow x|y|xT|yT$
+ \end{itemize} 
+  
+  
+  
+  
+ \end{document} 
+  
+ 
