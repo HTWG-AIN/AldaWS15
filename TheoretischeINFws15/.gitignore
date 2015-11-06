@@ -1,4 +1,5 @@
-*.aux
+bin/
+../*.aux
 *.dvi
 *.log
 *.gz
