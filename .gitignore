@@ -1,5 +1,8 @@
 ## Core latex/pdflatex auxiliary files:
 *.aux
+/*.aux
+TheoretischeINFws15/*.aux
+TheoretischeINFws15/Ü2/*.aux
 *.lof
 *.log
 *.lot
