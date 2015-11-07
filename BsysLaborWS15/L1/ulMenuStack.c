@@ -82,6 +82,7 @@ int main(int argc, char* argv[])
 						fprintf(stderr, "underflow, stack is empty\n");
 						goto start;
 					}
+			
 					printf("Pop from stack: %lu \n",ULStackPop(stack));
 					goto start;
 				}
