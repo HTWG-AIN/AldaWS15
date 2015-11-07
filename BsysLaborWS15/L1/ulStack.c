@@ -15,7 +15,7 @@ void ULStackNew(ulstack *s)
 	s->allocLength = MAX;
 	s->elems =  calloc(s->allocLength , sizeof(unsigned long));
 	s->logLength = 0;
-	
+	assert(s != NULL);
 	if (s->elems != NULL)
 	{
 		//	s->elems=NULL;
@@ -33,7 +33,7 @@ void ULStackPush(ulstack *s, unsigned long value)
 
 	//ulstack *temp;
 	//temp =(ulstack *) malloc(sizeof(ulstack));
-	
+	assert(s->elems != NULL);
 	if(s == NULL)
 	{
 		exit(0);
@@ -55,6 +55,8 @@ void ULStackPush(ulstack *s, unsigned long value)
 unsigned long ULStackPop(ulstack *s)
 {
 	unsigned long pop;
+	assert(s->elems != NULL);
+	assert(s->logLength > 0);
 //  ulstack p;	
 //	unsigned long *help = &poppedValue;
 	
@@ -73,6 +75,7 @@ unsigned long ULStackPop(ulstack *s)
 unsigned int GetULStackNumberOfElements(ulstack *s)
 {
 	unsigned int number;
+	assert(s->elems != NULL);
 	return number = s->logLength;
 	
 	
