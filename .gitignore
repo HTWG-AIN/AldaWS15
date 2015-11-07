@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Core latex/pdflatex auxiliary files:
 TheoretischeINFws15/
 *.aux
@@ -125,3 +126,37 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+=======
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+>>>>>>> cc4445e243565d46fc2891a46ba8432af6438eb9
