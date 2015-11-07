@@ -44,7 +44,12 @@ int main(int argc, char* argv[])
 	{
 		if(choice == 1)
 		{
-			assert(stack == NULL);
+			//assert(stack == NULL);
+			if(stack != NULL)
+			{
+				fprintf(stderr, "stack was created\n");
+				goto start;
+			}
 			stack = (ulstack *) malloc(sizeof(ulstack));
 			ULStackNew(stack);		
 			goto start;
@@ -72,6 +77,11 @@ int main(int argc, char* argv[])
 			}
 			 else if(choice == 3)
 				{
+					if(stack->elems == NULL || stack->logLength <=0 )
+					{
+						fprintf(stderr, "underflow, stack is empty\n");
+						goto start;
+					}
 					printf("Pop from stack: %lu \n",ULStackPop(stack));
 					goto start;
 				}
@@ -86,12 +96,12 @@ int main(int argc, char* argv[])
 					printf("stack is removed \n ");
 					free(stack);
 					stack = NULL;
-					exit(0);
+				//	exit(0);
 					goto start;
 				}
 		 } else 
 			{
-				printf("stack musst be created, type 1 to creat it!\n");
+				fprintf(stderr,"stack musst be created, type 1 to creat it!\n");
 				goto start;
 			}
 	}
