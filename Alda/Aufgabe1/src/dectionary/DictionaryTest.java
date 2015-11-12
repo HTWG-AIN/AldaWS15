@@ -13,10 +13,10 @@ public class DictionaryTest {
 
     public static void main(String[] args) {
         List<Dictionary<String, String>> dictList = Arrays.asList(
-                new SortedArrayDictionary<>(),
-                new HashDictionary<>(7),
-                new BinaryTreeDictionary<>(),
-                new MapDictionary<>(new HashMap<>())
+               // new SortedArrayDictionary<>(),
+              //  new HashDictionary<>(7),
+               new BinaryTreeDictionary<>()
+             //   new MapDictionary<>(new HashMap<>())
         );
 
         for (Dictionary<String, String> dict : dictList) {

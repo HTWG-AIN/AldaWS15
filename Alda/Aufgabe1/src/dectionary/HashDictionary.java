@@ -32,10 +32,10 @@ public class HashDictionary<K, V> implements Dictionary<K, V> {
 		V value;
 		Entry<K, V> next;
 
-		@SuppressWarnings("unused")
 		Entry(K k, V v) {
 			key = k;
 			value = v;
+			next = null;
 		}
 	};
 

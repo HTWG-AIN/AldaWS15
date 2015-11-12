@@ -37,7 +37,8 @@ class BinaryTreeDictionary<K extends Comparable<? super K>, V> implements Dictio
 
 	@Override
 	public V insert(K key, V value) {
-
+		// V oldValue;
+		//head = null;
 		root = insertR(key, value, root);
 		if (head != null) {
 			return head.value;
@@ -47,8 +48,10 @@ class BinaryTreeDictionary<K extends Comparable<? super K>, V> implements Dictio
 	}
 
 	private Node<K, V> insertR(K key, V value, Node<K, V> p) {
+		// V oldValue;
 		if (p == null) {
 			p = new Node<K, V>(key, value);
+			// oldValue =null;
 
 		} else if (key.compareTo(p.key) < 0) {
 			p.left = insertR(key, value, p.left);
@@ -59,6 +62,7 @@ class BinaryTreeDictionary<K extends Comparable<? super K>, V> implements Dictio
 			head = p;
 			p.key = key;
 			p.value = value;
+			// oldValue = value;
 		}
 
 		return p;
