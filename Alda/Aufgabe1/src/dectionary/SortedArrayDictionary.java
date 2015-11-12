@@ -13,7 +13,8 @@ class SortedArrayDictionary<K extends Comparable<? super K>, V> implements Dicti
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    	return size;
     }
 
     private static class Entry<K, V> {
@@ -41,12 +42,13 @@ class SortedArrayDictionary<K extends Comparable<? super K>, V> implements Dicti
         if (newCapacity < size) {
             return;
         }
-        Entry[] old = data;
+        Entry<K,V>[] old = data;
         data = new Entry[newCapacity];
         System.arraycopy(old, 0, data, 0, size);
     }
 
-    @Override
+  //  @SuppressWarnings("unchecked")
+	@Override
     public V insert(K key, V value) {
         int i = searchKey(key);
         // Vorhandener Eintrag wird überschrieben: 
@@ -59,7 +61,7 @@ class SortedArrayDictionary<K extends Comparable<? super K>, V> implements Dicti
         if (data.length == size) {
             ensureCapacity(2 * size);
         }
-        data[size] = new Entry(key, value);
+        data[size] = new Entry<K, V>(key, value);
         size++;
         return null;
     }

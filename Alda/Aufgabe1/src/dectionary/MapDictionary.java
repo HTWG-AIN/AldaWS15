@@ -18,11 +18,11 @@ class MapDictionary<K, V> implements Dictionary<K, V> {
     Map<K, V> myMap;
 
     public MapDictionary(TreeMap<K, V> treeMap) {
-        myMap = new TreeMap();
+        myMap = new TreeMap<K, V>();
     }
 
     public MapDictionary(HashMap<K, V> hashMap) {
-        myMap = new HashMap();
+        myMap = new HashMap<K, V>();
     }
 
     @Override
