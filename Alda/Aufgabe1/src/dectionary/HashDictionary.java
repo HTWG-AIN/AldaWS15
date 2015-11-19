@@ -21,7 +21,7 @@ public class HashDictionary<K, V> implements Dictionary<K, V> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public HashDictionary(int i) {
+	public HashDictionary() {
 		size = 0;
 		data = new Entry[DEF_CAPACITY];
 	}
