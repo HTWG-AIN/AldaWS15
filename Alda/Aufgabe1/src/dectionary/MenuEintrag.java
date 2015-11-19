@@ -3,18 +3,13 @@ package dectionary;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
-import java.util.TreeMap;
-
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -25,12 +20,12 @@ import javax.swing.border.Border;
 
 public class MenuEintrag extends JPanel implements ActionListener {
 
-	private String[] sucheAuswahl = { "HashMapDict", "TreeMapDict", "SortedArrayDict",  "HashDict","BinaryTreeDict" };
+	private String[] sucheAuswahl = { "HashMapDict", "TreeMapDict", "SortedArrayDict", "HashDict", "BinaryTreeDict" };
 
 	private HashDictionary<String, String> hashDict;
 	private SortedArrayDictionary<String, String> sortedDict;
 	private MapDictionary<String, String> mapDict;
-	//private MapDictionary<String, String> tmapDict;
+	// private MapDictionary<String, String> tmapDict;
 	private BinaryTreeDictionary<String, String> binaryDict;
 
 	private JTextArea ausgabeArea;
@@ -42,7 +37,7 @@ public class MenuEintrag extends JPanel implements ActionListener {
 
 		sortedDict = new SortedArrayDictionary<>();
 		mapDict = new MapDictionary<>(new HashMap<String, String>());
-		//tmapDict = new MapDictionary<>(new TreeMap<String, String>());
+		// tmapDict = new MapDictionary<>(new TreeMap<String, String>());
 		binaryDict = new BinaryTreeDictionary<>();
 		hashDict = new HashDictionary<>();
 
@@ -97,63 +92,118 @@ public class MenuEintrag extends JPanel implements ActionListener {
 		this.add(ausgabePanel);
 	}
 
+	private void searchAllClass() {
+		StringBuilder allgemein = new StringBuilder("");
+		String wortDE = DE.getText();		
+
+		if (!wortDE.equals("")) {
+			if (mapDict != null) {
+				mapDict.search(wortDE);
+
+			}
+			if (sortedDict != null) {
+				sortedDict.search(wortDE);
+
+			}
+			if (binaryDict != null) {
+				binaryDict.search(wortDE);
+
+			}
+			if (hashDict != null) {
+				hashDict.search(wortDE);
+
+			}
+			allgemein.append(wortDE).append(",").append(mapDict.myMap.get(wortDE)).append("");
+		} else {
+
+			JOptionPane.showMessageDialog(this, "Wort nicht gefunden !");
+		}
+		ausgabeArea.setText(allgemein.toString());
+
+	}
+
+	private void insertAllClass() {
+		StringBuilder allgemein = new StringBuilder("");
+		String w1 = DE.getText();
+		String w2 = EN.getText();
+
+		if (!(w1.equals("") && w2.equals(""))) {
+			if (mapDict != null) {
+				mapDict.insert(w1, w2);
+
+			}
+			if (sortedDict != null) {
+				sortedDict.insert(w1, w2);
+
+			}
+			if (binaryDict != null) {
+				binaryDict.insert(w1, w2);
+
+			}
+			if (hashDict != null) {
+				hashDict.insert(w1, w2);
+
+			}
+			allgemein.append(w1).append(",").append(w2).append("");
+		} else {
+
+			JOptionPane.showMessageDialog(this, "Wortpaar zum Einfügen eingeben !");
+		}
+		ausgabeArea.setText(allgemein.toString());
+
+	}
+
+	private void removeAllClass() {
+		StringBuilder allgemein = new StringBuilder("");
+		String w1 = DE.getText();
+
+		if (!w1.equals("")) {
+			if (mapDict != null) {
+				mapDict.remove(w1);
+
+			}
+			if (sortedDict != null) {
+				sortedDict.remove(w1);
+
+			}
+			if (binaryDict != null) {
+				binaryDict.remove(w1);
+
+			}
+			if (hashDict != null) {
+				hashDict.remove(w1);
+
+			}
+			allgemein.append("");
+		} else {
+
+			JOptionPane.showMessageDialog(this, "Wort zum Löschen eingeben !");
+		}
+		ausgabeArea.setText(allgemein.toString());
+
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object methode = e.getSource();
 		Object zustand = auswahl.getSelectedItem();
-		StringBuilder allgemein = new StringBuilder("");
 
 		// MapDict
-		if (zustand.equals(sucheAuswahl[0]) || zustand.equals(sucheAuswahl[1])) {
-
+		if (zustand.equals(sucheAuswahl[0]) || zustand.equals(sucheAuswahl[1]) || zustand.equals(sucheAuswahl[2])
+				|| zustand.equals(sucheAuswahl[3]) || zustand.equals(sucheAuswahl[4])) {
 			if (methode == search) {
-				String wortDE = DE.getText();
-
-				if (!wortDE.equals("")) {
-					mapDict.search(wortDE);
-					allgemein.append(wortDE);
-					allgemein.append(",");
-					allgemein.append(EN.getText());
-					allgemein.append("");
-				} else {
-
-					JOptionPane.showMessageDialog(this, "Wort nicht gefunden !");
-				}
-
+				searchAllClass();
 			}
 
 			if (methode == insert) {
-				String w1 = DE.getText();
-				String w2 = EN.getText();
-				if (!(w1.equals("") && w2.equals(""))) {
-					mapDict.insert(w1, w2);
-					allgemein.append(w1);
-					allgemein.append(",");
-					allgemein.append(w2);
-					allgemein.append("");
-
-				} else {
-
-					JOptionPane.showMessageDialog(this, "fÃ¼gen Sie ein Wort ein !");
-				}
+				insertAllClass();
 			}
 
 			if (methode == delete) {
-				String wort = DE.getText();
-
-				if (!wort.equals("")) {
-					mapDict.remove(wort);
-					wort = "";
-					allgemein.append(wort);
-
-				} else {
-
-					JOptionPane.showMessageDialog(this, "Ein Wort zum LÃ¶schen eingeben !");
-				}
+				removeAllClass();
 			}
 
 		}
-		
-		ausgabeArea.setText(allgemein.toString());
+
 	}
 }

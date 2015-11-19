@@ -30,6 +30,7 @@ class MapDictionary<K, V> implements Dictionary<K, V> {
 		V oldV = null;
 		if (myMap.containsKey(key)) {
 			oldV = myMap.get(key);
+			
 
 		}else
 		myMap.put(key, value);

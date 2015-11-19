@@ -38,12 +38,12 @@ class BinaryTreeDictionary<K extends Comparable<? super K>, V> implements Dictio
 	@Override
 	public V insert(K key, V value) {
 		// V oldValue;
-		//head = null;
-		root = insertR(key, value, root);
-		if (head != null) {
-			return head.value;
-		}
-		return null;
+		root = null;
+		head = insertR(key, value, head);
+		if (root != null) {
+			return root.value;
+		}else{
+		return null;}
 
 	}
 
@@ -52,14 +52,13 @@ class BinaryTreeDictionary<K extends Comparable<? super K>, V> implements Dictio
 		if (p == null) {
 			p = new Node<K, V>(key, value);
 			// oldValue =null;
-
 		} else if (key.compareTo(p.key) < 0) {
 			p.left = insertR(key, value, p.left);
 		} else if (key.compareTo(p.key) > 0) {
 			p.right = insertR(key, value, p.right);
-		} else // Schlüssel bereits vorhanden:
-		{
-			head = p;
+		} 
+		else{
+			root = p;
 			p.key = key;
 			p.value = value;
 			// oldValue = value;
